@@ -1,3 +1,5 @@
+3335. Total Characters in String After Transformations I
+
 class Solution {
 public:
     int lengthAfterTransformations(string s, int t) 
