@@ -1,3 +1,4 @@
+//HOW TO DELETE A NODE WITHOUT USING HEAD
 /**
  * Definition for singly-linked list.
  * struct ListNode {
