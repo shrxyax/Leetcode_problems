@@ -48,3 +48,8 @@ public:
     }
 };
 
+UNDERSTANDING:
+The logic overwrites information in the first row and first column, which are used as markers. But what if the first cell (matrix[0][0]) is set to 0 during your first pass? That value could have originally been 0, or it could have been set by your logic when it saw a 0 in the rest of the matrix.
+
+So, you need to track separately whether the first row and first column originally contained a 0, because you're using them as flags.
+
