@@ -1,3 +1,5 @@
+//THE MAIN ISSUE WAS THAT MATRIX[0][0] WAS OCCURING TWICE AND THEREFOREA  CHANCE FOR ERROR
+
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
