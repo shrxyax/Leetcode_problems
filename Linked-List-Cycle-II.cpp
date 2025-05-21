@@ -6,6 +6,8 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+//first FAST!=NULL THEN FAST->NEXT!=NULL.. because agr fast is null then first.next wont exist and segmentation fault will occur;
+
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) 
