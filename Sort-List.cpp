@@ -1,3 +1,5 @@
+//using merge sort and middle 
+
 class Solution 
 {
 public:
