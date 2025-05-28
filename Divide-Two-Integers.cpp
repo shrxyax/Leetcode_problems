@@ -2,6 +2,7 @@ class Solution {
 public:
     int divide(int a1, int b1) 
     {
+        
         if (b1 == 0) return INT_MAX; // Division by zero protection
         
         //only case where dividing two int can cause overflow
