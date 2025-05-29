@@ -1,5 +1,5 @@
 #include<cmath>
-#include<vector>
+
 class Solution {
 public:
     
