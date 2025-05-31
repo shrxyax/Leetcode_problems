@@ -1,6 +1,7 @@
 class Solution {
 public:
-    int maxSubArray(vector<int>& nums) {
+    int maxSubArray(vector<int>& nums) 
+{
         int n=nums.size();
         int res=nums[0];       //result should be initialized with first element
         int sum=0;
