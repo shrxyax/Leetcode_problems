@@ -14,7 +14,6 @@ public:
             if(nums[left]+nums[right]<target)
             {
                 left++;
-                right=nums.size()-1;
             }
             else if(nums[left]+nums[right]>target)
             {
