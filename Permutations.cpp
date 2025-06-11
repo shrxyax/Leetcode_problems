@@ -1,33 +1,27 @@
 class Solution {
 public:
-    void func(int c, int n, vector<int>& nums, vector<vector<int>>& res,int a,int b) {
-        if (c == n) {
+    void func(int idx, int n, vector<int>& nums, vector<vector<int>>& res) {
+        if(idx==n)
+        {
+            res.push_back(nums);
             return;
         }
-        while(b>=0)
+        for(int i=idx;i<n;i++)
         {
-            swap(nums[a],nums[b]);
-            res.push_back(nums);
-            c++;
-            if(c==n) return;
-            b--;a--;
+            swap(nums[idx],nums[i]);
+            func(idx+1,n, nums, res);
+            swap(nums[i],nums[idx]);
         }
-        func(c,n,nums,res,nums.size()-1,nums.size()-2);
     }
 
     vector<vector<int>> permute(vector<int>& nums) {
         vector<vector<int>> res;
-        res.push_back(nums);
-        if(nums.size()==1) return res;
-        vector<int> ans;
-        int n=1;
-        for(int i=2;i<=nums.size();i++)
-        {
-            n=n*i;
-        }
-        func(1,n, nums, res, nums.size()-1,nums.size()-2);
+
+        func(0,nums.size(), nums, res);
         return res;
     }
 };
+
+//another method is hashing and storing true false
 
 //N*N!
