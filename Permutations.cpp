@@ -1,26 +1,31 @@
 class Solution {
 public:
-    void func(int c, int n, vector<int>& nums, vector<vector<int>>& res, vector<int>& ans, unordered_map<int, bool>& visited) {
+    void func(int c, int n, vector<int>& nums, vector<vector<int>>& res,int a,int b) {
         if (c == n) {
-            res.push_back(ans);
             return;
         }
-        for (int i = 0; i < n; i++) {
-            if (visited[i]) continue;
-            visited[i] = true;
-            ans.push_back(nums[i]);
-            func(c + 1, n, nums, res, ans, visited);
-            ans.pop_back();
-            visited[i] = false;
+        while(b>=0)
+        {
+            swap(nums[a],nums[b]);
+            res.push_back(nums);
+            c++;
+            if(c==n) return;
+            b--;a--;
         }
+        func(c,n,nums,res,nums.size()-1,nums.size()-2);
     }
 
     vector<vector<int>> permute(vector<int>& nums) {
         vector<vector<int>> res;
+        res.push_back(nums);
+        if(nums.size()==1) return res;
         vector<int> ans;
-        unordered_map<int, bool> visited;
-        for (int i = 0; i < nums.size(); i++) visited[i] = false;
-        func(0, nums.size(), nums, res, ans, visited);
+        int n=1;
+        for(int i=2;i<=nums.size();i++)
+        {
+            n=n*i;
+        }
+        func(1,n, nums, res, nums.size()-1,nums.size()-2);
         return res;
     }
 };
