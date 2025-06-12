@@ -26,8 +26,8 @@ public:
 
         vector<vector<bool>> visited(row_len, vector<bool>(col_len, false));
 
-        for (int i = 0; i < row_len; ++i) {
-            for (int j = 0; j < col_len; ++j) {
+        for (int i = 0; i < row_len; i++) {
+            for (int j = 0; j < col_len; j++) {
                 if (check(i, j, 0, board, word, row_len, col_len, visited))
                     return true;
             }
