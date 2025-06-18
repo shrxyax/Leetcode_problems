@@ -12,3 +12,5 @@ public:
         return ans;
     }
 };
+
+//try with counting sort too
