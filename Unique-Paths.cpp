@@ -17,3 +17,25 @@ public:
         return func(0,0,m,n,grid);
     }
 };
+
+//space optimized dp
+class Solution {
+
+public:
+    int uniquePaths(int m, int n) 
+    {
+        vector<int> up(n,0);
+        for(int i=0;i<m;i++)
+        {
+            vector<int> temp(n,0);
+            for(int j=0;j<n;j++)
+            {
+                if(i==0 && j==0) temp[0]=1;
+                temp[j]+=up[j];
+                if(j>0) temp[j]+=temp[j-1];
+            }
+            up=temp;
+        }
+        return up[n-1];
+    }
+};
