@@ -1,36 +1,16 @@
 class Solution {
 public:
-    // Helper to find the path from root to target node
-    bool path(TreeNode* root, TreeNode* node, vector<TreeNode*>& ans) {
-        if (!root) return false;
 
-        ans.push_back(root);
-
-        if (root == node) return true;
-
-        if (path(root->left, node, ans) || path(root->right, node, ans))
-            return true;
-
-        ans.pop_back(); // backtrack
-        return false;
-    }
 
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        vector<TreeNode*> pathP, pathQ;
-        path(root, p, pathP);
-        path(root, q, pathQ);
+        
+        if(!root || root==p || root==q) return root;
 
-        TreeNode* lca = nullptr;
-        int i = 0;
+        TreeNode* left= lowestCommonAncestor(root->left,p,q);
+        TreeNode* right= lowestCommonAncestor(root->right,p,q);
 
-        while (i < pathP.size() && i < pathQ.size()) {
-            if (pathP[i] == pathQ[i])
-                lca = pathP[i];
-            else
-                break;
-            i++;
-        }
-
-        return lca;
+        if(left==NULL) return right;
+        else if(right==NULL) return left;
+        else return root;
     }
 };
